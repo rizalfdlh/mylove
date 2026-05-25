@@ -1,0 +1,977 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    overflow:hidden;
+
+    min-height:100dvh;
+
+    background:black;
+
+    font-family:Arial,sans-serif;
+
+    color:white;
+
+}
+
+/* =========================================
+GALAXY
+========================================= */
+
+.galaxy{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(
+    circle at top left,
+    rgba(255,0,255,0.35),
+    transparent 30%
+    ),
+
+    radial-gradient(
+    circle at top right,
+    rgba(0,255,255,0.25),
+    transparent 30%
+    ),
+
+    radial-gradient(
+    circle at bottom,
+    rgba(255,100,0,0.25),
+    transparent 30%
+    ),
+
+    black;
+
+    z-index:-20;
+
+}
+
+.galaxy::before{
+
+    content:'';
+
+    position:absolute;
+
+    width:200%;
+    height:200%;
+
+    background:
+
+    radial-gradient(
+    circle,
+    rgba(255,0,255,0.1),
+    transparent 30%
+    ),
+
+    radial-gradient(
+    circle,
+    rgba(0,255,255,0.1),
+    transparent 30%
+    ),
+
+    radial-gradient(
+    circle,
+    rgba(255,100,0,0.1),
+    transparent 30%
+    );
+
+    filter:blur(120px);
+
+    animation:
+    auroraMove 25s linear infinite;
+
+}
+
+@keyframes auroraMove{
+
+    from{
+
+        transform:
+        translate(-10%,-10%)
+        rotate(0deg);
+
+    }
+
+    to{
+
+        transform:
+        translate(10%,10%)
+        rotate(360deg);
+
+    }
+
+}
+
+/* =========================================
+STARS
+========================================= */
+
+#stars{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-10;
+
+}
+
+.star{
+
+    position:absolute;
+
+    background:white;
+
+    border-radius:50%;
+
+    animation:
+    twinkle infinite alternate;
+
+}
+
+@keyframes twinkle{
+
+    from{
+        opacity:0.2;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+/* =========================================
+SPACE DUST
+========================================= */
+
+#spaceDust{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-5;
+
+}
+
+.dust{
+
+    position:absolute;
+
+    width:2px;
+    height:2px;
+
+    background:white;
+
+    border-radius:50%;
+
+    opacity:0.3;
+
+    animation:
+    dustMove linear infinite;
+
+}
+
+@keyframes dustMove{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-100vh);
+    }
+
+}
+
+/* =========================================
+TITLE
+========================================= */
+
+.title{
+
+    position:absolute;
+
+    top:25px;
+
+    width:100%;
+
+    text-align:center;
+
+    z-index:100;
+
+}
+
+.title h1{
+
+    font-size:80px;
+
+    color:#ff8ae2;
+
+    text-shadow:
+    0 0 20px #ff00ff,
+    0 0 50px #ff00ff;
+
+}
+
+.title p{
+
+    margin-top:10px;
+
+    font-size:28px;
+
+}
+
+.heart{
+
+    display:inline-block;
+
+    animation:
+    heartbeat 1s infinite;
+
+}
+
+@keyframes heartbeat{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.25);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+/* =========================================
+SOLAR
+========================================= */
+
+.solar-system{
+
+    position:relative;
+
+    width:100vw;
+    height:100vh;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+}
+
+/* SATURN */
+
+.saturn{
+
+    position:absolute;
+
+    width:260px;
+    height:260px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    z-index:20;
+
+    animation:
+    planetFloat 6s ease-in-out infinite;
+
+    box-shadow:
+    0 0 60px #ff00ff,
+    0 0 120px #ff00ff;
+
+}
+
+.saturn img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+@keyframes planetFloat{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-20px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+/* RING */
+
+.ring{
+
+    position:absolute;
+
+    width:430px;
+    height:430px;
+
+    border-radius:50%;
+
+    border:
+    14px solid rgba(255,255,255,0.2);
+
+    top:-85px;
+    left:-85px;
+
+    transform:
+    rotateX(75deg);
+
+    animation:
+    ringRotate 10s linear infinite;
+
+}
+
+@keyframes ringRotate{
+
+    from{
+
+        transform:
+        rotateX(75deg)
+        rotate(0deg);
+
+    }
+
+    to{
+
+        transform:
+        rotateX(75deg)
+        rotate(360deg);
+
+    }
+
+}
+
+/* ORBITS */
+
+.orbit{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:
+    1px solid rgba(255,255,255,0.05);
+
+    animation:
+    rotate linear infinite;
+
+}
+
+.orbit1{
+    width:420px;
+    height:420px;
+    animation-duration:10s;
+}
+
+.orbit2{
+    width:620px;
+    height:620px;
+    animation-duration:16s;
+}
+
+.orbit3{
+    width:820px;
+    height:820px;
+    animation-duration:22s;
+}
+
+.orbit4{
+    width:1020px;
+    height:1020px;
+    animation-duration:28s;
+}
+
+.orbit5{
+    width:1220px;
+    height:1220px;
+    animation-duration:34s;
+}
+
+.orbit6{
+    width:1420px;
+    height:1420px;
+    animation-duration:40s;
+}
+
+.orbit7{
+    width:1620px;
+    height:1620px;
+    animation-duration:46s;
+}
+
+.orbit8{
+    width:1820px;
+    height:1820px;
+    animation-duration:52s;
+}
+
+.orbit9{
+    width:2020px;
+    height:2020px;
+    animation-duration:58s;
+}
+
+@keyframes rotate{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+/* PLANETS */
+
+.planet{
+
+    position:absolute;
+
+    width:140px;
+    height:140px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    top:-70px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    box-shadow:
+    0 0 30px white;
+
+}
+
+.planet img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+/* =========================================
+MUSIC PLAYER
+========================================= */
+
+.music-player{
+
+    position:fixed;
+
+    top:20px;
+    right:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:12px 18px;
+
+    border-radius:20px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(12px);
+
+    border:
+    1px solid rgba(255,255,255,0.1);
+
+    z-index:999;
+
+}
+
+.music-player img{
+
+    width:55px;
+    height:55px;
+
+    border-radius:15px;
+
+    object-fit:cover;
+
+}
+
+.music-info h3{
+
+    color:#ff8ae2;
+
+    font-size:18px;
+
+}
+
+.music-info p{
+
+    font-size:13px;
+
+}
+
+/* BUTTON */
+
+.music-btn{
+
+    border:none;
+
+    padding:12px 18px;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+    45deg,
+    #ff00ff,
+    #ff5be7
+    );
+
+    color:white;
+
+    transition:0.3s;
+
+}
+
+.music-btn:hover{
+
+    transform:scale(1.05);
+
+}
+
+.music-btn.active{
+
+    box-shadow:
+    0 0 20px #ff00ff;
+
+}
+
+/* =========================================
+LOVE CARD
+========================================= */
+
+.love-card{
+
+    position:fixed;
+
+    left:50%;
+    bottom:25px;
+
+    transform:
+    translateX(-50%);
+
+    width:700px;
+    max-width:92%;
+
+    padding:28px;
+
+    text-align:center;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border-radius:25px;
+
+    backdrop-filter:blur(10px);
+
+    border:
+    1px solid rgba(255,255,255,0.15);
+
+    z-index:998;
+
+}
+
+.love-card h2{
+
+    color:#ff8ae2;
+
+    font-size:42px;
+
+}
+
+.love-card p{
+
+    margin-top:18px;
+
+    font-size:22px;
+
+    line-height:1.8;
+
+}
+
+/* =========================================
+FLOAT LOVE
+========================================= */
+
+.floating-love{
+
+    position:fixed;
+
+    bottom:-50px;
+
+    pointer-events:none;
+
+    animation:
+    floatLove 8s linear forwards;
+
+    z-index:999;
+
+}
+
+@keyframes floatLove{
+
+    from{
+
+        transform:
+        translateY(0px)
+        rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    to{
+
+        transform:
+        translateY(-120vh)
+        rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+
+/* =========================================
+SHOOTING STAR
+========================================= */
+
+.shooting-star{
+
+    position:absolute;
+
+    width:150px;
+    height:2px;
+
+    background:
+    linear-gradient(
+    to right,
+    white,
+    transparent
+    );
+
+    transform:rotate(45deg);
+
+    animation:
+    shooting 3s linear forwards;
+
+}
+
+@keyframes shooting{
+
+    from{
+
+        transform:
+        translate(-200px,-200px)
+        rotate(45deg);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:
+        translate(120vw,120vh)
+        rotate(45deg);
+
+        opacity:0;
+
+    }
+
+}
+
+/* =========================================
+PARTICLE
+========================================= */
+
+.particle{
+
+    position:fixed;
+
+    pointer-events:none;
+
+    animation:
+    particleMove 1.5s forwards;
+
+    z-index:9999;
+
+}
+
+@keyframes particleMove{
+
+    from{
+
+        transform:
+        translate(0,0)
+        scale(1);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:
+        translate(var(--x),var(--y))
+        scale(0);
+
+        opacity:0;
+
+    }
+
+}
+
+/* =========================================
+TAP TO START
+========================================= */
+
+.tap-to-start{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    rgba(0,0,0,0.9);
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:999999;
+
+    backdrop-filter:blur(12px);
+
+    transition:0.5s;
+
+}
+
+.tap-box{
+
+    width:90%;
+    max-width:400px;
+
+    padding:40px 25px;
+
+    border-radius:30px;
+
+    text-align:center;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border:
+    1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+    0 0 40px rgba(255,0,255,0.3);
+
+}
+
+.tap-box h2{
+
+    color:#ff8ae2;
+
+    font-size:32px;
+
+    margin-bottom:15px;
+
+}
+
+.tap-box p{
+
+    font-size:16px;
+
+    line-height:1.7;
+
+}
+
+#startBtn{
+
+    margin-top:25px;
+
+    border:none;
+
+    padding:14px 28px;
+
+    border-radius:20px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:
+    linear-gradient(
+    45deg,
+    #ff00ff,
+    #ff4fd8
+    );
+
+    box-shadow:
+    0 0 25px #ff00ff;
+
+}
+
+/* =========================================
+MOBILE
+========================================= */
+
+@media(max-width:768px){
+
+    .title h1{
+
+        font-size:42px;
+
+    }
+
+    .title p{
+
+        font-size:16px;
+
+    }
+
+    .solar-system{
+
+        transform:scale(0.68);
+
+    }
+
+    .saturn{
+
+        width:130px;
+        height:130px;
+
+    }
+
+    .planet{
+
+        width:60px;
+        height:60px;
+
+        top:-30px;
+
+    }
+
+    .ring{
+
+        width:230px;
+        height:230px;
+
+        top:-50px;
+        left:-50px;
+
+    }
+
+    .orbit1{
+        width:220px;
+        height:220px;
+    }
+
+    .orbit2{
+        width:320px;
+        height:320px;
+    }
+
+    .orbit3{
+        width:420px;
+        height:420px;
+    }
+
+    .orbit4{
+        width:520px;
+        height:520px;
+    }
+
+    .orbit5{
+        width:620px;
+        height:620px;
+    }
+
+    .music-player{
+
+        width:92%;
+
+        left:50%;
+        top:auto;
+        bottom:150px;
+
+        transform:
+        translateX(-50%);
+
+    }
+
+    .love-card{
+
+        width:92%;
+
+        bottom:20px;
+
+        padding:18px;
+
+    }
+
+    .love-card h2{
+
+        font-size:24px;
+
+    }
+
+    .love-card p{
+
+        font-size:14px;
+
+    }
+
+}
